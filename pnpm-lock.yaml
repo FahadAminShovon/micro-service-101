@@ -45,9 +45,15 @@ importers:
       '@hono/node-server':
         specifier: ^1.14.4
         version: 1.14.4(hono@4.7.11)
+      '@hono/zod-validator':
+        specifier: ^0.7.0
+        version: 0.7.0(hono@4.7.11)(zod@3.25.64)
       hono:
         specifier: ^4.7.11
         version: 4.7.11
+      zod:
+        specifier: ^3.25.64
+        version: 3.25.64
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -64,6 +70,9 @@ importers:
 
   apps/vite-project:
     dependencies:
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -74,6 +83,9 @@ importers:
       '@eslint/js':
         specifier: ^9.25.0
         version: 9.28.0
+      '@repo/posts':
+        specifier: workspace:*
+        version: link:../posts
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -466,6 +478,12 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
+
+  '@hono/zod-validator@0.7.0':
+    resolution: {integrity: sha512-qe2ZE6sHFE98dcUrbYMtS3bAV8hqcCOflykvZga2S7XhmNSZzT+dIz4OuMILsjLHkJw9JMn912/dB7dQOmuPvg==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.25.0
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1324,6 +1342,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
@@ -1443,6 +1462,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -1985,6 +2005,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rollup@4.43.0:
@@ -2437,6 +2458,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
+  zod@3.25.64:
+    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
@@ -2685,6 +2709,11 @@ snapshots:
   '@hono/node-server@1.14.4(hono@4.7.11)':
     dependencies:
       hono: 4.7.11
+
+  '@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64)':
+    dependencies:
+      hono: 4.7.11
+      zod: 3.25.64
 
   '@humanfs/core@0.19.1': {}
 
@@ -5083,3 +5112,5 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@3.25.64: {}
