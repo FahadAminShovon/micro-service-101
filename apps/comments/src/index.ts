@@ -1,19 +1,22 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { randomBytes } from 'crypto';
+import { cors } from 'hono/cors';
 
 const app = new Hono();
 
-type TComment = {
+export type TComment = {
   id: string;
   content: string;
 };
 
-type TCommentsByPostId = {
+export type TCommentsByPostId = {
   [key: string]: TComment[];
 };
 
 const commentsByPostId: TCommentsByPostId = {};
+
+app.use(cors());
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');

@@ -1,6 +1,9 @@
 {
-  "name": "comments",
+  "name": "@repo/comments",
   "type": "module",
+  "exports": {
+    "./types": "./dist/index.d.ts"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
