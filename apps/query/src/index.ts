@@ -7,6 +7,7 @@ import type {
   TComment,
   TCommentUpdatedEvent,
 } from '@repo/comments/types';
+import axios from 'axios';
 
 type TEvent = TPostEvent | TCommentEvent | TCommentUpdatedEvent;
 
@@ -31,8 +32,7 @@ app.get('/posts', async (c) => {
   return c.json({ posts }, 200);
 });
 
-app.post('/events', async (c) => {
-  const event: TEvent = await c.req.json();
+function eventHandler(event: TEvent) {
   if (event.type === 'PostCreated') {
     const { title, id } = event.data;
     posts[id] = {
@@ -44,7 +44,7 @@ app.post('/events', async (c) => {
   if (event.type === 'CommentCreated') {
     const { id, content, postId, status } = event.data;
     if (!posts?.[postId]) {
-      return c.json({ message: 'Post not found' }, 404);
+      return;
     }
     const exisitingComments = posts[postId].comments || [];
     const updatedComments: TComment[] = [
@@ -56,18 +56,22 @@ app.post('/events', async (c) => {
   if (event.type === 'CommentUpdated') {
     const { id, content, postId, status } = event.data;
     if (!posts?.[postId]) {
-      return c.json({ message: 'Post not found' }, 404);
+      return;
     }
     const exisitingComments = posts[postId].comments || [];
 
     const comment = exisitingComments.find((c) => c.id === id);
     if (!comment) {
-      return c.json({ message: 'Comment not found' }, 404);
+      return;
     }
     comment.status = status;
     comment.content = content;
   }
+}
 
+app.post('/events', async (c) => {
+  const event: TEvent = await c.req.json();
+  eventHandler(event);
   return c.json({ message: 'Event processessed successfully' });
 });
 
@@ -76,7 +80,10 @@ serve(
     fetch: app.fetch,
     port: 4002,
   },
-  (info) => {
+  async (info) => {
     console.log(`Server is running on http://localhost:${info.port}`);
+    const res = await axios.get('http://localhost:4005/events');
+    const events: TEvent[] = res.data.events ?? [];
+    events.forEach(eventHandler);
   }
 );
