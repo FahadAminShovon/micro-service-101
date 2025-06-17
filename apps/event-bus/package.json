@@ -1,9 +1,6 @@
 {
-  "name": "@repo/comments",
+  "name": "@repo/event-bus",
   "type": "module",
-  "exports": {
-    "./types": "./dist/index.d.ts"
-  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
@@ -16,6 +13,8 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@repo/comments": "workspace:*",
+    "@repo/posts": "workspace:*",
     "@types/node": "^20.11.17",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"

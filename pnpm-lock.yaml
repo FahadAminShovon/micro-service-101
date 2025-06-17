@@ -23,10 +23,72 @@ importers:
       '@hono/node-server':
         specifier: ^1.14.4
         version: 1.14.4(hono@4.7.11)
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
       hono:
         specifier: ^4.7.11
         version: 4.7.11
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.19.0
+      tsx:
+        specifier: ^4.7.1
+        version: 4.20.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  apps/event-bus:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.4
+        version: 1.14.4(hono@4.7.11)
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
+    devDependencies:
+      '@repo/comments':
+        specifier: workspace:*
+        version: link:../comments
+      '@repo/posts':
+        specifier: workspace:*
+        version: link:../posts
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.19.0
+      tsx:
+        specifier: ^4.7.1
+        version: 4.20.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  apps/moderation:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.4
+        version: 1.14.4(hono@4.7.11)
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
+    devDependencies:
+      '@repo/comments':
+        specifier: workspace:*
+        version: link:../comments
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -48,6 +110,9 @@ importers:
       '@hono/zod-validator':
         specifier: ^0.7.0
         version: 0.7.0(hono@4.7.11)(zod@3.25.64)
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
       hono:
         specifier: ^4.7.11
         version: 4.7.11
@@ -55,6 +120,37 @@ importers:
         specifier: ^3.25.64
         version: 3.25.64
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.19.0
+      tsx:
+        specifier: ^4.7.1
+        version: 4.20.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  apps/query:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.4
+        version: 1.14.4(hono@4.7.11)
+      axios:
+        specifier: ^1.10.0
+        version: 1.10.0
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
+    devDependencies:
+      '@repo/comments':
+        specifier: workspace:*
+        version: link:../comments
+      '@repo/posts':
+        specifier: workspace:*
+        version: link:../posts
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -92,6 +188,9 @@ importers:
       '@repo/posts':
         specifier: workspace:*
         version: link:../posts
+      '@repo/query':
+        specifier: workspace:*
+        version: link:../query
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config

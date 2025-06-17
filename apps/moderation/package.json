@@ -1,5 +1,5 @@
 {
-  "name": "@repo/comments",
+  "name": "@repo/moderation",
   "type": "module",
   "exports": {
     "./types": "./dist/index.d.ts"
@@ -15,6 +15,7 @@
     "hono": "^4.7.11"
   },
   "devDependencies": {
+    "@repo/comments": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20.11.17",
     "tsx": "^4.7.1",
